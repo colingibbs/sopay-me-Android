@@ -79,7 +79,7 @@ public class Form extends Activity {
             final Button button = (Button) findViewById(R.id.button);
             button.setOnClickListener(new OnClickListener() {
                 public void onClick(View v) {
-                    // submit the order
+                    // build the JSON object for the order
                 	JSONObject order = new JSONObject();;
                 	
                 	try{                		
@@ -240,8 +240,9 @@ public class Form extends Activity {
         protected void onPostExecute(HttpResponse result) {
                 try {
                         BufferedReader reader = new BufferedReader(new InputStreamReader(result.getEntity().getContent()));
-                        //String first_line = reader.readLine();
-                        //Toast.makeText(getApplicationContext(), first_line, Toast.LENGTH_LONG).show();    
+                        String status = result.getStatusLine().toString();
+                        Toast.makeText(Form.this, status, Toast.LENGTH_LONG).show();
+                        
 	                    try{
 	                    	String line = reader.readLine();
 	                    	String allText = "";
