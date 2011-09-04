@@ -1,5 +1,15 @@
 package me.sopay;
 
+/*
+ * this was mainly for testing
+ * I don't think we'll actually need this file for the app
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,7 +28,9 @@ import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -77,6 +89,7 @@ public class AppInfo extends Activity {
     protected void onGetAuthToken(Bundle bundle) {
     	Log.i(TAG, "onGetAuthToken");
     	String auth_token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
+    	
         new GetCookieTask().execute(auth_token);
     }
     
@@ -111,9 +124,15 @@ public class AppInfo extends Activity {
         }	
         
 	    protected void onPostExecute(Boolean result) {
-	        String fullsite = "https://" + site + "/rpc?action=GetAll";
-	        Log.i(TAG, "trying to reach " + fullsite);
-	    	new AuthenticatedRequestTask().execute(fullsite);
+	    	
+	    	/*
+	    	 * add order submit request info here
+	    	 */
+	    	
+//	        String fullsite = "https://" + site + "/rpc?action=GetAll";
+//	        Log.i(TAG, "trying to reach " + fullsite);
+	    	
+//	    	new AuthenticatedRequestTask().execute(fullsite);
 	    }
 
     }

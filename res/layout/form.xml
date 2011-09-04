@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
+		android:orientation="vertical"
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent">
+		
+<LinearLayout 
+		android:orientation="vertical"
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent">
+	
+	<TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:text="What's this for? (no spaces or symbols)" />	
+	<EditText android:id="@+id/title"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp" 
+	        android:layout_width="fill_parent"
+	        android:singleLine="true"
+	        android:imeOptions="actionNext"/>
+	<TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:text="Enter more details:" />	
+	<EditText android:id="@+id/details"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp" 
+	        android:layout_width="fill_parent"
+	        android:singleLine="true"
+	        android:imeOptions="actionNext"/>
+	<TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:text="Enter the email address and amount owed for each person:" />	
+   	<LinearLayout 
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:padding="5dp">
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Name" />
+	    <AutoCompleteTextView android:id="@+id/enterName1"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:singleLine="true"
+	        android:imeOptions="actionNext"/>
+	</LinearLayout>
+	
+	<LinearLayout 
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:padding="5dp">
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Amount" />
+	    <EditText android:id="@+id/enterAmount1"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp" 
+	        android:layout_width="86dp"
+	        android:numeric="integer|decimal"
+	        android:imeOptions="actionNext"/>
+	</LinearLayout>
+	
+	<LinearLayout 
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:padding="5dp">
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Name" />
+	    <AutoCompleteTextView android:id="@+id/enterName2"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:singleLine="true"
+	        android:imeOptions="actionNext"/>
+	</LinearLayout>
+	
+	<LinearLayout 
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:padding="5dp">
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Amount" />
+	    <EditText android:id="@+id/enterAmount2"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp" 
+	        android:layout_width="86dp"
+	        android:numeric="integer|decimal"
+	        android:imeOptions="actionNext"/>
+	</LinearLayout>
+	
+	<LinearLayout 
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:padding="5dp">
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Name" />
+	    <AutoCompleteTextView android:id="@+id/enterName3"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:singleLine="true"
+	        android:imeOptions="actionNext"/>
+	</LinearLayout>
+	
+	<LinearLayout 
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:padding="5dp">
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Amount" />
+	    <EditText android:id="@+id/enterAmount3"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp" 
+	        android:layout_width="86dp"
+	        android:numeric="integer|decimal"
+	        android:imeOptions="actionNext"/>
+	</LinearLayout>
+	
+	<LinearLayout 
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:padding="5dp">
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Name" />
+        <AutoCompleteTextView android:id="@+id/enterName4"
+        	android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:singleLine="true"
+	        android:imeOptions="actionNext"/>
+	</LinearLayout>
+	
+	<LinearLayout 
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:padding="5dp">
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Amount" />
+	    <EditText android:id="@+id/enterAmount4"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp" 
+	        android:layout_width="86dp"
+	        android:numeric="integer|decimal"
+	        android:imeOptions="actionDone"/>
+	</LinearLayout>
+	
+	<Button 
+	android:layout_height="wrap_content" 
+	android:layout_width="wrap_content" 
+	android:id="@+id/button" 
+	android:text="Submit Order"></Button>
+</LinearLayout>
+</ScrollView>
