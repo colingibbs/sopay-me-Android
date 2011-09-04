@@ -14,7 +14,7 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int button=0x7f05000b;
+        public static final int clear=0x7f05000c;
         public static final int details=0x7f050002;
         public static final int enterAmount1=0x7f050004;
         public static final int enterAmount2=0x7f050006;
@@ -25,6 +25,7 @@ public final class R {
         public static final int enterName3=0x7f050007;
         public static final int enterName4=0x7f050009;
         public static final int outputTextView=0x7f050000;
+        public static final int submit=0x7f05000b;
         public static final int title=0x7f050001;
     }
     public static final class layout {

@@ -171,11 +171,21 @@
 	        android:numeric="integer|decimal"
 	        android:imeOptions="actionDone"/>
 	</LinearLayout>
-	
-	<Button 
-	android:layout_height="wrap_content" 
-	android:layout_width="wrap_content" 
-	android:id="@+id/button" 
-	android:text="Submit Order"></Button>
+	<LinearLayout 
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:padding="5dp">
+		<Button 
+		android:layout_height="wrap_content" 
+		android:layout_width="wrap_content" 
+		android:id="@+id/submit" 
+		android:text="Submit Order"></Button>
+		<Button 
+		android:layout_height="wrap_content" 
+		android:layout_width="wrap_content" 
+		android:id="@+id/clear" 
+		android:text="Clear form"></Button>
+	</LinearLayout>
 </LinearLayout>
 </ScrollView>

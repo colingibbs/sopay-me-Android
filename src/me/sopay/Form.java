@@ -76,8 +76,8 @@ public class Form extends Activity {
             textView = (AutoCompleteTextView) findViewById(R.id.enterName4);
             textView.setAdapter(adapter);
             
-            final Button button = (Button) findViewById(R.id.button);
-            button.setOnClickListener(new OnClickListener() {
+            final Button submitButton = (Button) findViewById(R.id.submit);
+            submitButton.setOnClickListener(new OnClickListener() {
                 public void onClick(View v) {
                     // build the JSON object for the order
                 	JSONObject order = new JSONObject();;
@@ -129,6 +129,33 @@ public class Form extends Activity {
                 		e.printStackTrace();
                 	}
 
+                }
+            });
+            
+            final Button clearButton = (Button) findViewById(R.id.clear);
+            clearButton.setOnClickListener(new OnClickListener() {
+                public void onClick(View v) {
+                	EditText title = (EditText) findViewById(R.id.title);
+                	EditText details = (EditText) findViewById(R.id.details);
+                	EditText email1 = (EditText) findViewById(R.id.enterName1);
+                	EditText email2 = (EditText) findViewById(R.id.enterName2);
+                	EditText email3 = (EditText) findViewById(R.id.enterName3);
+                	EditText email4 = (EditText) findViewById(R.id.enterName4);
+                	EditText amount1 = (EditText) findViewById(R.id.enterAmount1);
+                	EditText amount2 = (EditText) findViewById(R.id.enterAmount2);
+                	EditText amount3 = (EditText) findViewById(R.id.enterAmount3);
+                	EditText amount4 = (EditText) findViewById(R.id.enterAmount4);
+                	title.setText("");
+                	details.setText("");
+                	email1.setText("");
+                	email2.setText("");
+                	email3.setText("");
+                	email4.setText("");
+                	amount1.setText("");
+                	amount2.setText("");
+                	amount3.setText("");
+                	amount4.setText("");
+                	
                 }
             });
     }    
