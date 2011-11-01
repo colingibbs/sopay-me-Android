@@ -31,6 +31,7 @@ public class SoPayMeActivity extends Activity {
         	Intent intent = new Intent(this, Form.class);
             intent.putExtra("account", account);
             startActivity(intent);
+            finish();
         }        
     }
     
