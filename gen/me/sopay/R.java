@@ -34,7 +34,28 @@ public final class R {
         public static final int list_item=0x7f030002;
     }
     public static final class string {
+        /**  label for the amount field in the payment form 
+         */
+        public static final int amount=0x7f040006;
         public static final int app_name=0x7f040001;
+        /**  label for the clear button on the payment form 
+         */
+        public static final int clear=0x7f040008;
+        /**  details field in the payment form 
+         */
+        public static final int details=0x7f040003;
+        /**  label for email address field in the payment form 
+         */
+        public static final int email=0x7f040005;
         public static final int hello=0x7f040000;
+        /**  instructions in the payment form 
+         */
+        public static final int instructions=0x7f040004;
+        /**  label for the submit button on the payment form 
+         */
+        public static final int submit=0x7f040007;
+        /**  title field in the payment form 
+         */
+        public static final int title=0x7f040002;
     }
 }

@@ -18,8 +18,8 @@ public class SoPayMeActivity extends ListActivity {
      */
     private static final String TAG = "SoPayMeActivity";
     
-    protected AccountManager accountManager;
     protected Intent intent;
+    protected Account account;
     
  
 	/** Called when the activity is first created. */
@@ -29,18 +29,33 @@ public class SoPayMeActivity extends ListActivity {
 
         super.onCreate(savedInstanceState);
         
-    	accountManager = AccountManager.get(getApplicationContext());
-        Account[] accounts = accountManager.getAccountsByType("com.google");
-        this.setListAdapter(new ArrayAdapter(this, R.layout.list_item, accounts));
-        
-    }
-
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-            Account account = (Account)getListView().getItemAtPosition(position);
-            Intent intent = new Intent(this, Form.class);
+        account = Preferences.getAccount(getApplicationContext());
+        if(account==null)
+        {
+        	Log.i(TAG, "No account selected yet.  Launching account list");
+        	
+        	Intent intent = new Intent(this, AccountsActivity.class);
+	        startActivityForResult(intent, 2);
+        }else{
+        	Intent intent = new Intent(this, Form.class);
             intent.putExtra("account", account);
             startActivity(intent);
+        }
+        	
+        
+        
+    	        
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //1=success and 2=AccountsActivity
+        if (resultCode == RESULT_OK && requestCode == 2) {
+        	account = Preferences.getAccount(getApplicationContext());
+        	Intent intent = new Intent(this, Form.class);
+            intent.putExtra("account", account);
+            startActivity(intent);
+        }
     }
   
 }

@@ -13,7 +13,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp"
-	        android:text="What's this for? (no spaces or symbols)" />	
+	        android:text="@string/title" />	
 	<EditText android:id="@+id/title"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp" 
@@ -24,7 +24,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp"
-	        android:text="Enter more details:" />	
+	        android:text="@string/details" />	
 	<EditText android:id="@+id/details"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp" 
@@ -35,7 +35,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp"
-	        android:text="Enter the email address and amount owed for each person:" />	
+	        android:text="@string/instructions" />	
    	<LinearLayout 
 	    android:orientation="horizontal"
 	    android:layout_width="fill_parent" 
@@ -44,7 +44,7 @@
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Name" />
+	        android:text="@string/email" />
 	    <AutoCompleteTextView android:id="@+id/enterName1"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Amount" />
+	        android:text="@string/amount" />
 	    <EditText android:id="@+id/enterAmount1"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp" 
@@ -78,7 +78,7 @@
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Name" />
+	        android:text="@string/email" />
 	    <AutoCompleteTextView android:id="@+id/enterName2"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Amount" />
+	        android:text="@string/amount" />
 	    <EditText android:id="@+id/enterAmount2"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp" 
@@ -112,7 +112,7 @@
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Name" />
+	        android:text="@string/email" />
 	    <AutoCompleteTextView android:id="@+id/enterName3"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Amount" />
+	        android:text="@string/amount" />
 	    <EditText android:id="@+id/enterAmount3"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp" 
@@ -146,7 +146,7 @@
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Name" />
+	        android:text="@string/email" />
         <AutoCompleteTextView android:id="@+id/enterName4"
         	android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
@@ -163,7 +163,7 @@
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Amount" />
+	        android:text="@string/amount" />
 	    <EditText android:id="@+id/enterAmount4"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp" 
@@ -180,12 +180,12 @@
 		android:layout_height="wrap_content" 
 		android:layout_width="wrap_content" 
 		android:id="@+id/submit" 
-		android:text="Submit Order"></Button>
+		android:text="@string/submit"></Button>
 		<Button 
 		android:layout_height="wrap_content" 
 		android:layout_width="wrap_content" 
 		android:id="@+id/clear" 
-		android:text="Clear form"></Button>
+		android:text="@string/clear"></Button>
 	</LinearLayout>
 </LinearLayout>
 </ScrollView>

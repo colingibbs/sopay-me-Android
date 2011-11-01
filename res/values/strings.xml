@@ -2,4 +2,25 @@
 <resources>
     <string name="hello">SoPayMeActivity!</string>
     <string name="app_name">So Pay Me</string>
+    
+    <!-- title field in the payment form -->
+    <string name="title">"What's this for? (no spaces or symbols)"</string>    
+        
+    <!-- details field in the payment form -->
+    <string name="details">"Enter more details:"</string>
+        
+    <!-- instructions in the payment form -->
+    <string name="instructions">"Enter the email address and amount owed for each person:"</string>
+        
+    <!-- label for email address field in the payment form -->
+    <string name="email">Email</string>
+    
+    <!-- label for the amount field in the payment form -->
+    <string name="amount">Amount</string>    
+    
+    <!-- label for the submit button on the payment form -->
+    <string name="submit">Submit Order</string>    
+    
+    <!-- label for the clear button on the payment form -->
+    <string name="clear">Clear form</string>    
 </resources>

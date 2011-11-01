@@ -51,7 +51,7 @@ import android.widget.Toast;
 public class Form extends Activity {
 
 	DefaultHttpClient http_client = new DefaultHttpClient();
-	private static final String site = "cgibbs-test.sopay-me.appspot.com";
+	private static final String site = "sopay-me.appspot.com";
 	private static final String fullsite = "https://" + site + "/rpc";
 	private static final String TAG = "SoPayMeActivity-AppInfo";
 	private Account account;
@@ -167,6 +167,9 @@ public class Form extends Activity {
             Intent intent = getIntent();
             AccountManager accountManager = AccountManager.get(getApplicationContext());
             account = (Account)intent.getExtras().get("account");
+            
+            setTitle("So Pay Me - " + account.name);
+            
             accountManager.getAuthToken(account, "ah", false, new GetAuthTokenCallback(), null);
     }
     
@@ -270,19 +273,19 @@ public class Form extends Activity {
                         String status = result.getStatusLine().toString();
                         Toast.makeText(Form.this, status, Toast.LENGTH_LONG).show();
                         
-	                    try{
-	                    	String line = reader.readLine();
-	                    	String allText = "";
-	                    	while(line !=null){
-	                    		Log.i(TAG, line);
-	                    		allText += line;
-	                    		line = reader.readLine();
-	                    		
-	                        }
-	                    	
-	                    } catch (IOException e){
-	                    	e.printStackTrace();
-	                    }
+//	                    try{
+//	                    	String line = reader.readLine();
+//	                    	String allText = "";
+//	                    	while(line !=null){
+//	                    		Log.i(TAG, line);
+//	                    		allText += line;
+//	                    		line = reader.readLine();
+//	                    		
+//	                        }
+//	                    	
+//	                    } catch (IOException e){
+//	                    	e.printStackTrace();
+//	                    }
                         
                 } catch (IllegalStateException e) {
                         // TODO Auto-generated catch block

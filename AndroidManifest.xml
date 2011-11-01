@@ -8,14 +8,15 @@
 
     <application android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:name=".SoPayMeActivity"
-                  android:label="@string/app_name">
+                  android:label="@string/app_name"
+                  android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="AppInfo"></activity>
 		<activity android:name="Form"></activity>
+		<activity android:name="AccountsActivity"></activity>
     </application>
     
     <uses-permission android:name="android.permission.GET_ACCOUNTS"></uses-permission>
