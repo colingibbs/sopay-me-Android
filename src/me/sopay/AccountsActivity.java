@@ -19,9 +19,7 @@ public class AccountsActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
     	Log.i(TAG, "onCreate");
     	super.onCreate(savedInstanceState);
-    	
-    	Log.i(TAG, "opening account manager");
-    	
+    	    	
     	AccountManager accountManager = AccountManager.get(this);
         Account[] accounts = accountManager.getAccountsByType("com.google");
         this.setListAdapter(new ArrayAdapter(this, R.layout.list_item, accounts));
@@ -32,7 +30,11 @@ public class AccountsActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
             Account account = (Account)getListView().getItemAtPosition(position);
             Preferences.setAccount(this, account);
-            setResult(RESULT_OK);
+            
+            //create the intent to launch the form
+            Intent intent = new Intent(this, Form.class);
+            intent.putExtra("account", account);
+            setResult(RESULT_OK, intent);
             finish();
     }
 }
