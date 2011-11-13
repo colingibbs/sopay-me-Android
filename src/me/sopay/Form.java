@@ -25,11 +25,8 @@ import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -42,7 +39,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CursorAdapter;
@@ -59,33 +55,18 @@ public class Form extends Activity {
 	private static final String fullsite = "https://" + site + "/rpc";
 	private static final String TAG = "SoPayMeActivity-AppInfo";
 	private Account account;
-	int numPeople = 1;
-	
-	//store all of the EditText view IDs in a 2D array
-	private int[][] editTextViewIds = {
-			{R.id.title, R.id.details,},
-			{R.id.enterName1, R.id.enterName2, R.id.enterName3, R.id.enterName4,},
-			{R.id.enterAmount1, R.id.enterAmount2, R.id.enterAmount3, R.id.enterAmount4,},
-	};
-	//ids for each TableLayout that holds the email and amount fields
-	private int[] labelViewIds = {R.id.person1, R.id.person2, R.id.person3, R.id.person4};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.form);
             
-            //hide all of the input fields except the first group
-            for(int i=1; i<labelViewIds.length; i++){
-        		View temp = findViewById(labelViewIds[i]);
-        		temp.setVisibility(View.GONE);
-            }
-            
-            //set all of the autocompleters            
             ContentResolver content = getContentResolver();
             Cursor cursor = content.query(Email.CONTENT_URI, CONTACT_PROJECTION, null, null, null);
+            
             ContactListAdapter adapter = new ContactListAdapter(this, cursor);
 
+            //set all of the autocompleters
             AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.enterName1);
             textView.setAdapter(adapter);
             textView = (AutoCompleteTextView) findViewById(R.id.enterName2);
@@ -113,28 +94,36 @@ public class Form extends Activity {
                     	EditText details = (EditText) findViewById(R.id.details);
                     	order.put("details", details.getText());
                     	
-                    	//add the emails that the user entered  (1=emails)
-                    	for(int i=0; i<editTextViewIds[1].length; i++){
-                    		EditText email = (EditText) findViewById(editTextViewIds[1][i]);
-                    		String e = email.getText().toString();
+                    	//add the emails that the user entered
+                    	EditText email1 = (EditText) findViewById(R.id.enterName1);
+                    	EditText email2 = (EditText) findViewById(R.id.enterName2);
+                    	EditText email3 = (EditText) findViewById(R.id.enterName3);
+                    	EditText email4 = (EditText) findViewById(R.id.enterName4);
+                    	
+                    	String[] rawEmails = {email1.getText().toString(), email2.getText().toString(), 
+                    			email3.getText().toString(), email4.getText().toString()};
+                    	for(String e : rawEmails){
                     		if(e.length() > 0)
                     			order.accumulate("emails", e);
                     	}                    	
                     	
-                    	//add the amounts that the user entered (2=amounts)
-                    	for(int i=0; i<editTextViewIds[2].length; i++){
-                    		EditText amount = (EditText) findViewById(editTextViewIds[2][i]);
-                    		String a = amount.getText().toString();
+                    	//add the amounts that the user entered
+                    	EditText amount1 = (EditText) findViewById(R.id.enterAmount1);
+                    	EditText amount2 = (EditText) findViewById(R.id.enterAmount2);
+                    	EditText amount3 = (EditText) findViewById(R.id.enterAmount3);
+                    	EditText amount4 = (EditText) findViewById(R.id.enterAmount4);
+                    	
+                    	String[] rawAmounts = {amount1.getText().toString(), amount2.getText().toString(), 
+                    			amount3.getText().toString(), amount4.getText().toString()};
+                    	for(String a : rawAmounts){
                     		if(a.length() > 0)
                     			order.accumulate("amounts", a);
-                    	}    
-                    	
-                    	//hide the keyboard
-                    	InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                    	imm.hideSoftInputFromWindow(findViewById(R.id.form).getWindowToken(), 0);
-                    	
+                    	}                   	
+                        
                     	Log.i(TAG, "SENDING ORDER: " + order.toString());
-                        new SubmitOrder(Form.this, fullsite, http_client).execute(order);                    	
+                        new submitOrder().execute(order);
+                        Toast.makeText(Form.this, "Submitting order...", Toast.LENGTH_SHORT).show();
+                    	
                 	}
                 	catch(Exception e){
                 		e.printStackTrace();
@@ -146,22 +135,27 @@ public class Form extends Activity {
             final Button clearButton = (Button) findViewById(R.id.clear);
             clearButton.setOnClickListener(new OnClickListener() {
                 public void onClick(View v) {
-                	ClearForm();
-                }
-            });
-            
-            final Button addButton = (Button) findViewById(R.id.add);
-            addButton.setOnClickListener(new OnClickListener() {
-                public void onClick(View v) {
-                	if(numPeople<4){
-                		View temp = findViewById(labelViewIds[numPeople]);
-                		temp.setVisibility(View.VISIBLE);
-                		//setContentView(R.layout.form);
-                		numPeople++;
-                	}else{
-                		String text = "You can only include 4 people in the order.";
-                		Toast.makeText(Form.this, text, Toast.LENGTH_LONG).show();
-                	}
+                	EditText title = (EditText) findViewById(R.id.title);
+                	EditText details = (EditText) findViewById(R.id.details);
+                	EditText email1 = (EditText) findViewById(R.id.enterName1);
+                	EditText email2 = (EditText) findViewById(R.id.enterName2);
+                	EditText email3 = (EditText) findViewById(R.id.enterName3);
+                	EditText email4 = (EditText) findViewById(R.id.enterName4);
+                	EditText amount1 = (EditText) findViewById(R.id.enterAmount1);
+                	EditText amount2 = (EditText) findViewById(R.id.enterAmount2);
+                	EditText amount3 = (EditText) findViewById(R.id.enterAmount3);
+                	EditText amount4 = (EditText) findViewById(R.id.enterAmount4);
+                	title.setText("");
+                	details.setText("");
+                	email1.setText("");
+                	email2.setText("");
+                	email3.setText("");
+                	email4.setText("");
+                	amount1.setText("");
+                	amount2.setText("");
+                	amount3.setText("");
+                	amount4.setText("");
+                	
                 }
             });
     }    
@@ -177,15 +171,6 @@ public class Form extends Activity {
             setTitle("So Pay Me - " + account.name);
             
             accountManager.getAuthToken(account, "ah", false, new GetAuthTokenCallback(), null);
-    }
-    
-    protected void ClearForm(){
-    	for(int i=0; i<editTextViewIds.length; i++){
-    		for(int j=0; j<editTextViewIds[i].length; j++){
-    			EditText temp = (EditText) findViewById(editTextViewIds[i][j]);
-        		temp.setText("");
-    		}
-    	}
     }
     
     
@@ -257,7 +242,60 @@ public class Form extends Activity {
 
     }
 
-    
+    private class submitOrder extends AsyncTask<JSONObject, Void, HttpResponse> {
+        
+    	@Override
+        protected HttpResponse doInBackground(JSONObject... order) {
+                
+    			try {
+                        HttpPost http_post = new HttpPost(fullsite);
+
+                        StringEntity s = new StringEntity(order[0].toString());
+                        s.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+                        HttpEntity entity = s;
+                        http_post.setEntity(entity);
+                        
+                        
+                        return http_client.execute(http_post);
+                } catch (ClientProtocolException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                }
+                return null;
+        }
+        
+        protected void onPostExecute(HttpResponse result) {
+                try {
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(result.getEntity().getContent()));
+                        String status = result.getStatusLine().toString();
+                        Toast.makeText(Form.this, status, Toast.LENGTH_LONG).show();
+                        
+//	                    try{
+//	                    	String line = reader.readLine();
+//	                    	String allText = "";
+//	                    	while(line !=null){
+//	                    		Log.i(TAG, line);
+//	                    		allText += line;
+//	                    		line = reader.readLine();
+//	                    		
+//	                        }
+//	                    	
+//	                    } catch (IOException e){
+//	                    	e.printStackTrace();
+//	                    }
+                        
+                } catch (IllegalStateException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                }
+        }
+}
     
     public static class ContactListAdapter extends CursorAdapter implements Filterable {
         public ContactListAdapter(Context context, Cursor c) {
