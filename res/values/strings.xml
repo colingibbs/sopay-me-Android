@@ -22,8 +22,5 @@
     <string name="submit">Submit Order</string>    
     
     <!-- label for the clear button on the payment form -->
-    <string name="clear">Clear</string>   
-    
-    <!-- label for the add button on the payment form -->
-    <string name="add">Add someone</string>  
+    <string name="clear">Clear form</string>    
 </resources>
