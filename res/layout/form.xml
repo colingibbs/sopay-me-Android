@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
 		android:orientation="vertical"
 		android:layout_width="fill_parent" 
-		android:layout_height="fill_parent">
+		android:layout_height="fill_parent"
+		android:id="@+id/form">
 		
 <LinearLayout 
 		android:orientation="vertical"
@@ -36,11 +37,13 @@
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="5dp"
 	        android:text="@string/instructions" />	
-   	<LinearLayout 
-	    android:orientation="horizontal"
-	    android:layout_width="fill_parent" 
-	    android:layout_height="wrap_content"
-	    android:padding="5dp">
+   
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1"
+    android:id="@+id/person1">
+    <TableRow>
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -51,13 +54,8 @@
 	        android:layout_marginLeft="5dp"
 	        android:singleLine="true"
 	        android:imeOptions="actionNext"/>
-	</LinearLayout>
-	
-	<LinearLayout 
-	    android:orientation="horizontal"
-	    android:layout_width="fill_parent" 
-	    android:layout_height="wrap_content"
-	    android:padding="5dp">
+	</TableRow>	
+	<TableRow>
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -67,14 +65,17 @@
 	        android:layout_marginLeft="5dp" 
 	        android:layout_width="86dp"
 	        android:numeric="integer|decimal"
-	        android:imeOptions="actionNext"/>
-	</LinearLayout>
-	
-	<LinearLayout 
-	    android:orientation="horizontal"
-	    android:layout_width="fill_parent" 
-	    android:layout_height="wrap_content"
-	    android:padding="5dp">
+	        android:imeOptions="actionNext"/>>
+	</TableRow>
+</TableLayout>
+	    
+	    
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1"
+    android:id="@+id/person2">
+    <TableRow>
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -85,13 +86,9 @@
 	        android:layout_marginLeft="5dp"
 	        android:singleLine="true"
 	        android:imeOptions="actionNext"/>
-	</LinearLayout>
+	</TableRow>
 	
-	<LinearLayout 
-	    android:orientation="horizontal"
-	    android:layout_width="fill_parent" 
-	    android:layout_height="wrap_content"
-	    android:padding="5dp">
+	<TableRow>
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -102,13 +99,15 @@
 	        android:layout_width="86dp"
 	        android:numeric="integer|decimal"
 	        android:imeOptions="actionNext"/>
-	</LinearLayout>
+	</TableRow>
+</TableLayout>
 	
-	<LinearLayout 
-	    android:orientation="horizontal"
-	    android:layout_width="fill_parent" 
-	    android:layout_height="wrap_content"
-	    android:padding="5dp">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1"
+    android:id="@+id/person3">
+    <TableRow>
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -119,9 +118,9 @@
 	        android:layout_marginLeft="5dp"
 	        android:singleLine="true"
 	        android:imeOptions="actionNext"/>
-	</LinearLayout>
+	</TableRow>
 	
-	<LinearLayout 
+	<TableRow>
 	    android:orientation="horizontal"
 	    android:layout_width="fill_parent" 
 	    android:layout_height="wrap_content"
@@ -136,9 +135,15 @@
 	        android:layout_width="86dp"
 	        android:numeric="integer|decimal"
 	        android:imeOptions="actionNext"/>
-	</LinearLayout>
+	</TableRow> 
+</TableLayout>
 	
-	<LinearLayout 
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1"
+    android:id="@+id/person4">
+    <TableRow> 
 	    android:orientation="horizontal"
 	    android:layout_width="fill_parent" 
 	    android:layout_height="wrap_content"
@@ -153,9 +158,9 @@
 	        android:layout_marginLeft="5dp"
 	        android:singleLine="true"
 	        android:imeOptions="actionNext"/>
-	</LinearLayout>
+	</TableRow>
 	
-	<LinearLayout 
+	<TableRow>
 	    android:orientation="horizontal"
 	    android:layout_width="fill_parent" 
 	    android:layout_height="wrap_content"
@@ -170,7 +175,11 @@
 	        android:layout_width="86dp"
 	        android:numeric="integer|decimal"
 	        android:imeOptions="actionDone"/>
-	</LinearLayout>
+	</TableRow>
+</TableLayout>
+	
+	    
+	    
 	<LinearLayout 
 	    android:orientation="horizontal"
 	    android:layout_width="fill_parent" 
@@ -186,6 +195,11 @@
 		android:layout_width="wrap_content" 
 		android:id="@+id/clear" 
 		android:text="@string/clear"></Button>
+		<Button 
+		android:layout_height="wrap_content" 
+		android:layout_width="wrap_content" 
+		android:id="@+id/add" 
+		android:text="@string/add"></Button>
 	</LinearLayout>
 </LinearLayout>
 </ScrollView>
